@@ -1,18 +1,20 @@
-
-import React from 'react'
-import Dice from './Dice';
+import Die from './Die';
 import { DiceType } from '../DiceType';
+import Grid from '@mui/material/Unstable_Grid2/Grid2';
 
 type Props = {
     dice: DiceType[],
-    removeDice: (value:number)=>void;
+    removeDice: (die:DiceType)=>void;
 }
 
-const DiceStage = () => {
+const DiceStage = ({dice, removeDice}: Props) => {
   return (
-    <div>
-
-    </div>
+    <Grid container spacing={1} xs={12}>
+      {dice.map(x => {
+        return <Die key={x.id} die={x} onClickHandler={removeDice} />
+        // TODO: return a div instead containing the Die AND the modinput - Judie 9/12/23
+      })}
+    </Grid>
   )
 }
 

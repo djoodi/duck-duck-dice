@@ -4,9 +4,11 @@ import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import { useState } from 'react'
 import DiceSelector from './components/DiceSelector'
-import './App.css';
+//import './App.css';
 import DiceStage from './components/DiceStage';
 import { DiceType } from './DiceType';
+import Grid from '@mui/material/Unstable_Grid2/Grid2';
+import NavBar from './components/NavBar';
 
 function App() {
   const [dice, setDice] = useState<DiceType[]>([]);
@@ -18,18 +20,24 @@ function App() {
     return currentId;
   }
   
-  const addDice = (value: number) => {
-    setDice([...dice, {id: newId(), d: value, mod: 0}]);
+  const addDice = (die: DiceType) => {
+    setDice([...dice, {id: newId(), d: die.d, mod: 0}]);
   }
 
-  const removeDice = (value: number) => {
-    setDice(dice.filter(x => x.id != value))
+  const removeDice = (die: DiceType) => {
+    setDice(dice.filter(x => x.id != die.id))
   }
 
   return (
     <>
-      <DiceSelector addDice={addDice}/>
-      <DiceStage  />
+      <NavBar />
+      <main>
+        <Grid container rowSpacing={2} columns={12}>
+          <DiceSelector addDice={addDice}/>
+          <DiceStage dice={dice} removeDice={removeDice}/>
+        </Grid>
+      </main>
+
     </>
   )
 }
