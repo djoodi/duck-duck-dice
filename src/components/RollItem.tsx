@@ -1,6 +1,4 @@
 import { Box, Divider, Typography, styled } from "@mui/material";
-import { blue } from "@mui/material/colors";
-import React from "react";
 import { DiceType } from "../DiceType";
 
 type Props = {

@@ -1,4 +1,4 @@
-import { Box, Button } from "@mui/material";
+import { Button } from "@mui/material";
 import "../DiceType";
 import { DiceType } from "../DiceType";
 import Grid from "@mui/material/Unstable_Grid2/Grid2";
