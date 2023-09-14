@@ -52,7 +52,7 @@ function App() {
   return (
     <>
       <NavBar />
-      <Stack m={5} >
+      <Stack m={3} >
         <DiceSelector addDice={addDice} />
         <Box display="flex" justifyContent="center" gap={2}>
           <Button variant="contained" size="large" onClick={() => rollDice()} disabled={dice.length == 0}>
