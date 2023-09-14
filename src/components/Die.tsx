@@ -1,4 +1,4 @@
-import { Button } from "@mui/material";
+import { Button, Stack, Typography } from "@mui/material";
 import "../DiceType";
 import { DiceType } from "../DiceType";
 import Grid from "@mui/material/Unstable_Grid2/Grid2";
@@ -91,9 +91,12 @@ const Die = ({ die, onClickHandler }: Props) => {
   return (
     <Grid>
       <Button onClick={() => onClickHandler(die)}>
+        <Stack>
           <svg xmlns="http://www.w3.org/2000/svg" width="60px" height="60px" viewBox="0 0 512 512">
             {getSVG(die.d)}
           </svg>
+          <span>d<Typography display="inline-block" fontWeight={500}>{die.d}</Typography></span>
+        </Stack>
       </Button>
     </Grid>
   );

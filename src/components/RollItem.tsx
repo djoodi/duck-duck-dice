@@ -24,9 +24,20 @@ const RollItem = ({ rolls }: Props) => {
     return total;
   };
 
+  const modifierString = (value: number) => {
+    if (value > 0) {
+      return ` + ${value}`;
+    } else if (value < 0) {
+      return ` - ${Math.abs(value)}`
+    }
+    else {
+      return ''
+    }
+  }
+
   return (
     <Box mb={2}>
-        <Typography variant='h6'>CharacterName</Typography>
+      {/* <Typography variant="h6">CharacterName</Typography> */}
       <ContainerBox>
         <Box display="flex">
           <Box
@@ -48,7 +59,7 @@ const RollItem = ({ rolls }: Props) => {
                 <DieBox display="flex" m={1} height="fit-content">
                   <Box p={1}>{`d${x.id}`}</Box>
                   <Divider orientation="vertical" flexItem />
-                  <Box p={1}>{`${x.d}${x.mod != 0 ? ` + ${x.mod}` : ""}`}</Box>
+                  <Box p={1}>{`${x.d}${modifierString(x.mod)}`}</Box>
                 </DieBox>
               );
             })}

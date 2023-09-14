@@ -40,6 +40,7 @@ function App() {
   };
 
   const rollDice = () => {
+    if (dice.length == 0) return;
     let diceRolls: DiceType[] = [];
     dice.forEach((x) => {
       const r = Math.floor(Math.random() * x.d) + 1;
@@ -51,25 +52,25 @@ function App() {
   return (
     <>
       <NavBar />
-      <Stack m={5} justifyContent="center">
+      <Stack m={5} >
         <DiceSelector addDice={addDice} />
-        <DiceStage
-          dice={dice}
-          removeDice={removeDice}
-          setModifier={setModifier}
-        />
         <Box display="flex" justifyContent="center" gap={2}>
-          <Button variant="contained" size="large" onClick={() => rollDice()}>
+          <Button variant="contained" size="large" onClick={() => rollDice()} disabled={dice.length == 0}>
             <Typography variant="h5" component="p" fontWeight={600}>
               ROLL
             </Typography>
           </Button>
-          <Button variant="contained" size="large" onClick={() => setDice([])}>
+          <Button variant="contained" size="large" onClick={() => setDice([])} disabled={dice.length == 0}>
             <Typography variant="h5" component="p" fontWeight={600}>
               CLEAR
             </Typography>
           </Button>
         </Box>
+        <DiceStage
+          dice={dice}
+          removeDice={removeDice}
+          setModifier={setModifier}
+        />
         <RollLog rolls={rolls} />
       </Stack>
     </>

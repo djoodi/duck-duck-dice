@@ -19,13 +19,13 @@ const ModifierTextField = styled(TextField)({
 const StyledBox = styled(Box)({
   border: "1px solid black",
   borderRadius: "10px",
-  minHeight: "200px"
+  minHeight: "225px",
 });
 
 const DiceStage = ({ dice, removeDice, setModifier }: Props) => {
   return (
     <StyledBox m={3}>
-      <Typography variant="h6" fontWeight={500} textAlign="center" mt={2}>Dice Stage</Typography>
+      <Typography variant="h6" fontWeight={500} textAlign="center" mt={2} component="h3">2. Add modifiers, or click to remove dice</Typography>
       <Grid container spacing={1} justifyContent="center" p={2}>
         {dice.map((x) => {
           return (
@@ -41,7 +41,6 @@ const DiceStage = ({ dice, removeDice, setModifier }: Props) => {
               />
             </Stack>
           );
-          // TODO: return a div instead containing the Die AND the modinput - Judie 9/12/23
         })}
       </Grid>
     </StyledBox>
