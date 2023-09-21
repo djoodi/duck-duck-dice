@@ -47,7 +47,7 @@ function App() {
       const r = Math.floor(Math.random() * x.d) + 1;
       diceRolls.push({ id: x.d, d: r, mod: x.mod });
     });
-    setRolls([...rolls, diceRolls]);
+    setRolls([diceRolls, ...rolls]);
   };
 
   return (

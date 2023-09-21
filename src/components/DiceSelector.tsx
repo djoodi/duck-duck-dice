@@ -10,7 +10,7 @@ type Props = {
 export default function DiceSelector({ addDice }: Props) {
   return (
     <Stack alignItems="center" mb={3}>
-      <Typography variant="h6" component="h2">
+      <Typography variant="h6" component="h2" mb={3}>
         1. Select your dice
       </Typography>
       <Grid container spacing={1} justifyContent="center">

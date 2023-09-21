@@ -17,7 +17,7 @@ const RollLog = ({ rolls }: Props) => {
       <Typography variant="h6" textAlign="center" mb={3}>
         Roll Log
       </Typography>
-      <Stack direction="column-reverse">
+      <Stack direction="column" sx={{height: '70vh', overflow: 'auto'}}>
         {rolls.map((x) => {
           return <RollItem rolls={x} />;
         })}
