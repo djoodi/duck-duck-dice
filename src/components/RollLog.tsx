@@ -15,7 +15,7 @@ const RollLog = ({ rolls }: Props) => {
       mx={3}
     >
       <Typography variant="h6" textAlign="center" mb={3}>
-        Log
+        Roll Log
       </Typography>
       <Stack direction="column-reverse">
         {rolls.map((x) => {

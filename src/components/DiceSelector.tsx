@@ -10,8 +10,10 @@ type Props = {
 export default function DiceSelector({ addDice }: Props) {
   return (
     <Stack alignItems="center" mb={3}>
-      <Typography variant="h6" component="h2">1. Select your dice</Typography>
-      <Grid container spacing={1} justifyContent="Center">
+      <Typography variant="h6" component="h2">
+        1. Select your dice
+      </Typography>
+      <Grid container spacing={1} justifyContent="center">
         <Die die={{ id: 1, d: 4, mod: 0 }} onClickHandler={addDice} />
         <Die die={{ id: 2, d: 6, mod: 0 }} onClickHandler={addDice} />
         <Die die={{ id: 3, d: 8, mod: 0 }} onClickHandler={addDice} />

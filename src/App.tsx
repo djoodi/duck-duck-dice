@@ -8,8 +8,9 @@ import DiceSelector from "./components/DiceSelector";
 import DiceStage from "./components/DiceStage";
 import { DiceType } from "./DiceType";
 import NavBar from "./components/NavBar";
-import { Box, Button, Stack, Typography } from "@mui/material";
+import { Box, Button, Divider, Typography } from "@mui/material";
 import RollLog from "./components/RollLog";
+import Grid2 from "@mui/material/Unstable_Grid2";
 
 function App() {
   const [dice, setDice] = useState<DiceType[]>([]);
@@ -52,27 +53,42 @@ function App() {
   return (
     <>
       <NavBar />
-      <Stack m={5} >
-        <DiceSelector addDice={addDice} />
-        <Box display="flex" justifyContent="center" gap={2}>
-          <Button variant="contained" size="large" onClick={() => rollDice()} disabled={dice.length == 0}>
-            <Typography variant="h5" component="p" fontWeight={600}>
-              ROLL
-            </Typography>
-          </Button>
-          <Button variant="contained" size="large" onClick={() => setDice([])} disabled={dice.length == 0}>
-            <Typography variant="h5" component="p" fontWeight={600}>
-              CLEAR
-            </Typography>
-          </Button>
-        </Box>
-        <DiceStage
-          dice={dice}
-          removeDice={removeDice}
-          setModifier={setModifier}
-        />
-        <RollLog rolls={rolls} />
-      </Stack>
+      <Grid2 container m={3}>
+        <Grid2 xs={12} md={6} pr={3}>
+          <DiceSelector addDice={addDice} />
+          <Box display="flex" justifyContent="center" gap={2}>
+            <Button
+              variant="contained"
+              size="large"
+              onClick={() => rollDice()}
+              disabled={dice.length == 0}
+            >
+              <Typography variant="h5" component="p" fontWeight={600}>
+                ROLL
+              </Typography>
+            </Button>
+            <Button
+              variant="contained"
+              size="large"
+              onClick={() => setDice([])}
+              disabled={dice.length == 0}
+            >
+              <Typography variant="h5" component="p" fontWeight={600}>
+                CLEAR
+              </Typography>
+            </Button>
+          </Box>
+          <DiceStage
+            dice={dice}
+            removeDice={removeDice}
+            setModifier={setModifier}
+          />
+        </Grid2>
+        <Divider orientation="vertical" flexItem sx={{mr: "-1px", display:{xs:'none', md:'block'}}}/>
+        <Grid2 xs={12} md={6} pl={3}>
+          <RollLog rolls={rolls} />
+        </Grid2>
+      </Grid2>
     </>
   );
 }
