@@ -54,7 +54,7 @@ function App() {
     <>
       <NavBar />
       <Grid2 container m={3}>
-        <Grid2 xs={12} md={6} pr={3}>
+        <Grid2 xs={12} md={6} sx={{pr:{xs: '0', md:'3'}}}>
           <DiceSelector addDice={addDice} />
           <Box display="flex" justifyContent="center" gap={2}>
             <Button
@@ -85,7 +85,7 @@ function App() {
           />
         </Grid2>
         <Divider orientation="vertical" flexItem sx={{mr: "-1px", display:{xs:'none', md:'block'}}}/>
-        <Grid2 xs={12} md={6} pl={3}>
+        <Grid2 xs={12} md={6} sx={{pl:{xs: '0', md:'3'}}}>
           <RollLog rolls={rolls} />
         </Grid2>
       </Grid2>
