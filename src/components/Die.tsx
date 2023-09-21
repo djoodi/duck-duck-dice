@@ -1,7 +1,6 @@
 import { Button, Stack, Typography } from "@mui/material";
 import "../DiceType";
 import { DiceType } from "../DiceType";
-import Grid from "@mui/material/Unstable_Grid2/Grid2";
 
 type Props = {
   die: DiceType;
